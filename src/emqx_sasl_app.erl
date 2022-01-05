@@ -1,5 +1,5 @@
 %%--------------------------------------------------------------------
-%% Copyright (c) 2020 EMQ Technologies Co., Ltd. All Rights Reserved.
+%% Copyright (c) 2020-2021 EMQ Technologies Co., Ltd. All Rights Reserved.
 %%
 %% Licensed under the Apache License, Version 2.0 (the "License");
 %% you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@
 
 start(_Type, _Args) ->
     ok = emqx_sasl:init(),
-    emqx_sasl:load(),
+    _ = emqx_sasl:load(),
     emqx_sasl_cli:load(),
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
